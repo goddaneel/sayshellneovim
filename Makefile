@@ -22,11 +22,7 @@ _ga_exec_mkdir += "./build/create/DEBIAN"
 _ga_exec_mkdir += "./build/create/info"
 _ga_exec_mkdir += "./build/dpkg/DEBIAN"
 _ga_exec_mkdir += "./build/dpkg/usr/bin"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellnvim/main/base"
 _ga_exec_mkdir += "./build/dpkg/usr/share/sayshellnvim/main/info"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellnvim/main/patch/bash"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellnvim/main/patch/icewm"
-_ga_exec_mkdir += "./build/dpkg/usr/share/sayshellnvim/extra/profile"
 _ga_exec_mkdir += "./export"
 
 
@@ -63,48 +59,12 @@ _ga_exec_precopy += '/usr/bin/install'
 _ga_exec_precopy += -v
 _ga_exec_precopy += -p
 _ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellnvim/main/base/sayshellnvim_dbusproxy"
-_ga_exec_precopy += "./dpkg/usr/share/sayshellnvim/main/base/sayshellnvim_flatpakx11"
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellnvim/main/base/"
-_ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
-_ga_exec_precopy += -m 0644
 _ga_exec_precopy += "./dpkg/usr/share/sayshellnvim/main/info/"*
 _ga_exec_precopy += "./LICENSE"
 _ga_exec_precopy += "./build/create/info/version"
 _ga_exec_precopy += -t
 _ga_exec_precopy += "./build/dpkg/usr/share/sayshellnvim/main/info/"
 _ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
-_ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellnvim/main/patch/bash/.bashrc"
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellnvim/main/patch/bash/"
-_ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
-_ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellnvim/main/patch/icewm/"*
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellnvim/main/patch/icewm/"
-_ga_exec_precopy += &&
-
-_ga_exec_precopy += '/usr/bin/install'
-_ga_exec_precopy += -v
-_ga_exec_precopy += -p
-_ga_exec_precopy += -m 0644
-_ga_exec_precopy += "./dpkg/usr/share/sayshellnvim/extra/profile/"*
-_ga_exec_precopy += -t
-_ga_exec_precopy += "./build/dpkg/usr/share/sayshellnvim/extra/profile/"
 
 _ga_exec_postcopy += '/usr/bin/install'
 _ga_exec_postcopy += -v
