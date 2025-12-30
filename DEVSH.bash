@@ -22,62 +22,6 @@ function _gF_unit_clean ()
 }
 declare -fr '_gF_unit_clean'
 
-function _gF_unit_checks () 
-{
-        declare -a "_la_exec_check" ;
-        #               #
-        _la_exec_check=(
-                '/usr/bin/fdfind'
-                --hidden
-                --type file
-                .
-                "./dpkg/usr/bin"
-                "./dpkg/usr/share/sayshellnvim/main/base"
-                "./dpkg/usr/share/sayshellnvim/main/patch/bash"
-                "./dpkg/usr/share/sayshellnvim/extra/profile"
-                "./example/usr/local/share/sayshellnvim/main/init"
-                "./example/usr/local/share/sayshellnvim/extra/profile"
-                "./example/usr/local/share/sayshellnvim/extra/execute"
-                "./example/usr/local/share/sayshellnvim/extra/flatpak/profile"
-                --exec
-                '/usr/bin/shellcheck'
-                --norc
-                --color=always
-                -a
-                -x
-                --
-        )
-        #               #
-        "${_la_exec_check[@]}" ;
-}
-declare -fr '_gF_unit_checks'
-
-function _gF_unit_checkb () 
-{
-        declare -a "_la_exec_check" ;
-        #               #
-        _la_exec_check=(
-                '/usr/bin/fdfind'
-                --hidden
-                --type file
-                .
-                "./dpkg/usr/bin"
-                "./dpkg/usr/share/sayshellnvim/main/base"
-                "./dpkg/usr/share/sayshellnvim/main/patch/bash"
-                "./dpkg/usr/share/sayshellnvim/extra/profile"
-                --exec
-                '/usr/bin/shellcheck'
-                --norc
-                --color=always
-                -a
-                -x
-                --
-        )
-        #               #
-        "${_la_exec_check[@]}" ;
-}
-declare -fr '_gF_unit_checkb'
-
 function _gF_unit_mkdir () 
 {
         declare -a "_la_exec_install" ;
@@ -93,9 +37,6 @@ function _gF_unit_mkdir ()
                 "./build/dpkg/usr/bin"
                 "./build/dpkg/usr/share/sayshellnvim/main/base"
                 "./build/dpkg/usr/share/sayshellnvim/main/info"
-                "./build/dpkg/usr/share/sayshellnvim/main/patch/bash"
-                "./build/dpkg/usr/share/sayshellnvim/main/patch/git"
-                "./build/dpkg/usr/share/sayshellnvim/main/patch/icewm"
                 "./build/dpkg/usr/share/sayshellnvim/extra/profile"
                 "./export"
         )
@@ -130,52 +71,9 @@ function _gF_unit_precopy ()
                 -p
                 -m 0644
                 -t
-                "./build/dpkg/usr/share/sayshellnvim/main/base/"
-                --
-                "./dpkg/usr/share/sayshellnvim/main/base/sayshellnvim_dbusproxy"
-                "./dpkg/usr/share/sayshellnvim/main/base/sayshellnvim_flatpakx11"
-        )
-        #               #
-        "${_la_exec_install[@]}" ;
-        #               #
-        #               #
-        _la_exec_install=(
-                '/usr/bin/install'
-                -v
-                -p
-                -m 0644
-                -t
                 "./build/dpkg/usr/share/sayshellnvim/main/info/"
                 --
                 "./LICENSE"
-        )
-        #               #
-        "${_la_exec_install[@]}" ;
-        #               #
-        #               #
-        _la_exec_install=(
-                '/usr/bin/install'
-                -v
-                -p
-                -m 0644
-                -t
-                "./build/dpkg/usr/share/sayshellnvim/main/patch/bash/"
-                --
-                "./dpkg/usr/share/sayshellnvim/main/patch/bash/.bashrc"
-        )
-        #               #
-        "${_la_exec_install[@]}" ;
-        #               #
-        #               #
-        _la_exec_install=(
-                '/usr/bin/install'
-                -v
-                -p
-                -m 0644
-                -t
-                "./build/dpkg/usr/share/sayshellnvim/main/patch/git/"
-                --
-                "./dpkg/usr/share/sayshellnvim/main/patch/git/.gitconfig"
         )
         #               #
         "${_la_exec_install[@]}" ;
@@ -196,24 +94,6 @@ function _gF_unit_precopy ()
                 -m 0644
                 -t
                 "./build/dpkg/usr/share/sayshellnvim/main/info/"
-                --
-        )
-        #               #
-        "${_la_exec_fdfind[@]}" ;
-        #               #
-        #               #
-        _la_exec_fdfind=(
-                '/usr/bin/fdfind'
-                --type file
-                .
-                "./dpkg/usr/share/sayshellnvim/main/patch/icewm/"
-                --exec
-                '/usr/bin/install'
-                -v
-                -p
-                -m 0644
-                -t
-                "./build/dpkg/usr/share/sayshellnvim/main/patch/icewm/"
                 --
         )
         #               #
@@ -358,16 +238,12 @@ case "${_gs_1_opt}" in
         "clean-all")
                 '_gF_unit_clean'
                 ;;
-        "check-all")
-                '_gF_unit_checks'
-                ;;
         "build-deb")
                 '_gF_unit_clean'
                 '_gF_unit_mkdir'
                 '_gF_unit_precopy'
                 '_gF_unit_shasum'
                 '_gF_unit_postcopy'
-                '_gF_unit_checkb'
                 '_gF_unit_dpkg'
                 ;;
         "sync-local")
