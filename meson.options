@@ -1,0 +1,7 @@
+# package
+option('package',
+    type : 'combo',
+    choices : [
+        'debian'
+        ]
+    )
