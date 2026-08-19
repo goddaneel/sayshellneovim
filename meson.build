@@ -1,8 +1,12 @@
 ### project
-project('sayshellnvim',
+project('sayshellneovim',
     license : 'Apache-2.0',
     license_files : 'LICENSE',
-    meson_version : '>=1.7.0')
+    meson_version : '>=1.7.0',
+    default_options : [
+        'prefix=/'
+        ]
+    )
 
 
 
@@ -23,6 +27,8 @@ _gs_default_version = run_command('yq', '-r', '.version', 'Default.yml',
 
 ### subproject
 _gs_subproject_neovim = subproject('neovim-release')
+
+message(_gs_subproject_neovim)
 
 
 

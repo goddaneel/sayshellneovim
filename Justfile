@@ -12,7 +12,21 @@ clean-all:
         git clean -fxd
 
 
-meson-setup arg1:
+meson-subproject:
         cp -rv "module" "subprojects"
-        meson setup "build/{{arg1}}"
-        meson compile -C "build/{{arg1}}"
+
+
+meson-setup arg1:
+        meson setup -Dpackage="{{arg1}}" "buildir/{{arg1}}"
+        meson compile -C "buildir/{{arg1}}"
+
+
+meson-install arg1:
+        meson install -C "buildir/{{arg1}}" --destdir="destdir"
+
+
+work-meson arg1:
+        just clean-all
+        just meson-subproject
+        just meson-setup "{{arg1}}"
+        just meson-install "{{arg1}}"
