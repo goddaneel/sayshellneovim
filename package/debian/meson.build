@@ -36,3 +36,8 @@ install_emptydir('usr/lib/sayshellneovim',
 
 install_emptydir('usr/lib/sayshellneovim/backend',
     install_mode : 'rwxr-xr-x')
+
+install_subdir('../../subprojects/neovim-release/nvim-linux-x86_64',
+    install_dir : '/usr/lib/sayshellneovim/backend/neovim',
+    strip_directory : true,
+    install_mode : 'rwxr-xr-x')

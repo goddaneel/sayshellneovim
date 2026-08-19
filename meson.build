@@ -28,8 +28,6 @@ _gs_default_version = run_command('yq', '-r', '.version', 'Default.yml',
 ### subproject
 _gs_subproject_neovim = subproject('neovim-release')
 
-message(_gs_subproject_neovim)
-
 
 
 ### package
