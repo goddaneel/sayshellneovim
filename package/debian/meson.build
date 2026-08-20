@@ -8,6 +8,8 @@ _gs_default_arch = run_command('dpkg', '--print-architecture',
 _gs_config_debian.set('package', _gs_default_name)
 _gs_config_debian.set('arch', _gs_default_arch)
 _gs_config_debian.set('version', _gs_default_version)
+_gs_config_debian.set('title', _gs_default_title)
+_gs_config_debian.set('author', _gs_default_author)
 
 
 ## DEBIAN

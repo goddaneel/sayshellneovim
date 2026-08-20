@@ -3,6 +3,15 @@ set positional-arguments
 set shell := ["bash", "-uc"]
 
 
+
+### variable
+_gs_default_name := `yq -r ".name" "Default.yml"`
+_gs_default_version := `yq -r ".version" "Default.yml"`
+
+_gs_package_debian := _gs_default_name + "_debian_" + _gs_default_version
+
+
+
 ### target
 default:
         just --list
@@ -10,6 +19,15 @@ default:
 
 clean-all:
         git clean -fxd
+
+
+shasum-export arg1:
+        #!/usr/bin/bash
+        set -euxo pipefail
+        #       #
+        cd "{{parent_directory(arg1)}}"
+        #       #
+        shasum --algorithm 256 "{{file_name(arg1)}}" >> "{{file_name(arg1)}}.shasum" 
 
 
 meson-subproject:
@@ -25,8 +43,38 @@ meson-install arg1:
         meson install -C "buildir/{{arg1}}" --destdir="destdir"
 
 
-work-meson arg1:
+package-debian:
+        #!/usr/bin/bash
+        set -euxo pipefail
+        #       #
+        declare -a "_la_exec_install"
+        declare -a "_la_exec_dpkg"
+        #       #
+        _la_exec_install=(
+                install -v -d -m 0755
+                "export"
+                "export/debian"
+        )
+        #       #
+        _la_exec_dpkg=(
+                dpkg-deb --root-owner-group --build
+                "buildir/debian/destdir"
+                "export/debian/{{_gs_package_debian}}.deb"
+        )
+        #       #
+        "${_la_exec_install[@]}"
+        "${_la_exec_dpkg[@]}"
+        #       #
+        just shasum-export "export/debian/{{_gs_package_debian}}.deb"
+
+
+meson-work arg1:
         just clean-all
         just meson-subproject
         just meson-setup "{{arg1}}"
         just meson-install "{{arg1}}"
+
+
+work-debian:
+        just meson-work "debian"
+        just package-debian

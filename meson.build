@@ -20,6 +20,9 @@ _gs_default_name = run_command('yq', '-r', '.name', 'Default.yml',
 _gs_default_title = run_command('yq', '-r', '.title', 'Default.yml',
     check : true).stdout().strip()
 
+_gs_default_author = run_command('yq', '-r', '.author', 'Default.yml',
+    check : true).stdout().strip()
+
 _gs_default_version = run_command('yq', '-r', '.version', 'Default.yml',
     check : true).stdout().strip()
 

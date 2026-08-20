@@ -1,3 +1,5 @@
 Package: @package@
 Architecture: @arch@
+Description: @title@
+Maintainer: @author@
 Version: @version@
