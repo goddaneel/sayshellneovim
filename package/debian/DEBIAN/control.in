@@ -2,4 +2,5 @@ Package: @package@
 Architecture: @arch@
 Description: @title@
 Maintainer: @author@
+Depends: luajit
 Version: @version@
