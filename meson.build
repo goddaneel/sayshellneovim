@@ -33,6 +33,11 @@ _gs_subproject_neovim = subproject('neovim-release')
 
 
 
+### custom
+subdir('custom/execute')
+
+
+
 ### package
 _gs_option_package = get_option('package')
 

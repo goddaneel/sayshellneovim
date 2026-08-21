@@ -8,7 +8,8 @@ set shell := ["bash", "-uc"]
 _gs_default_name := `yq -r ".name" "Default.yml"`
 _gs_default_version := `yq -r ".version" "Default.yml"`
 
-_gs_package_debian := _gs_default_name + "_debian_" + _gs_default_version
+_gs_default_debian_arch := `dpkg --print-architecture`
+_gs_package_debian := _gs_default_name + "-" + _gs_default_version + "-" + _gs_default_debian_arch
 
 
 
