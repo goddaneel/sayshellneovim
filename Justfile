@@ -32,7 +32,7 @@ shasum-export arg1:
 
 
 meson-subproject:
-        cp -rv "module" "subprojects"
+        cp -rv "wrap" "subprojects"
 
 
 meson-setup arg1:

@@ -1,6 +1,6 @@
 --- path
 -- and
-package.path = "/_and/config/nvim/?.lua;"..package.path
+package.path = "/usr/lib/sayshellneovim/custom/config/?.lua;"..package.path
 
 
 --- require

@@ -34,7 +34,7 @@ _gs_subproject_neovim = subproject('neovim-release')
 
 
 ### custom
-subdir('custom/execute')
+subdir('custom')
 
 
 
