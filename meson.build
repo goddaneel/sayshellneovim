@@ -10,6 +10,14 @@ project('sayshellneovim',
 
 
 
+### option
+_gs_option_prefix = get_option('prefix')
+_gs_option_bindir = get_option('bindir')
+_gs_option_destdir = get_option('destdir')
+_gs_option_package = get_option('package')
+
+
+
 ### default
 _gs_default_id = run_command('yq', '-r', '.id', 'Default.yml',
     check : true).stdout().strip()
@@ -39,6 +47,4 @@ subdir('custom')
 
 
 ### package
-_gs_option_package = get_option('package')
-
 subdir('package' / _gs_option_package)

@@ -13,4 +13,3 @@ require("global/03_toggle")
 require("global/03_config")
 require("global/03_hotkey")
 require("global/03_abbrev")
-

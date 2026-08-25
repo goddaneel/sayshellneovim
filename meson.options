@@ -1,4 +1,9 @@
-# package
+## destdir
+option('destdir',
+    type : 'string')
+
+
+## package
 option('package',
     type : 'combo',
     choices : [

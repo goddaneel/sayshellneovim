@@ -36,7 +36,7 @@ meson-subproject:
 
 
 meson-setup arg1:
-        meson setup -Dpackage="{{arg1}}" "buildir/{{arg1}}"
+        meson setup -Dpackage="{{arg1}}" -Ddestdir="destdir" "buildir/{{arg1}}"
         meson compile -C "buildir/{{arg1}}"
 
 
