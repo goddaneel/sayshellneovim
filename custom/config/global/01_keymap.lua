@@ -7,14 +7,13 @@ vim.g.mapleader = "\t"
 --- vim.keymap
 -- advanced
 vim.keymap.set(
-"n",
-"<SPACE>",
-":<SPACE>"
+        "n",
+        "<SPACE>",
+        ":<SPACE>"
 )
 
 vim.keymap.set(
-"n",
-"\\",
-":!<SPACE>"
+        "n",
+        "\\",
+        ":!<SPACE>"
 )
-

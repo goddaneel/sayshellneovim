@@ -9,20 +9,19 @@ vim.o.shiftwidth = 4
 --- vim.keymap
 -- format
 vim.keymap.set(
-{
-        "n",
-        "v",
-},
-",,ll",
-":s/$/;/g<CR><ESC>"
+        {
+                "n",
+                "v",
+        },
+        ",,ll",
+        ":s/$/;/g<CR><ESC>"
 )
 
 vim.keymap.set(
-{
-        "n",
-        "v",
-},
-",,l,",
-":s/$/,/g<CR><ESC>"
+        {
+                "n",
+                "v",
+        },
+        ",,l,",
+        ":s/$/,/g<CR><ESC>"
 )
-

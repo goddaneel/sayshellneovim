@@ -4,25 +4,24 @@
 -- name
 local _ls_exec_neovim = ""
 local _la_exec_neovim = {}
+local _la_args_neovim = {}
+
+
+-- argument
+for _li_key,_ls_val in ipairs({...}) do
+        _la_args_neovim[#_la_args_neovim + 1] = _ls_val
+end
 
 
 -- variable
 _la_exec_neovim = {
         "/usr/lib/sayshellneovim/backend/neovim/bin/nvim",
-        "--clean",
         "-u",
         "/usr/lib/sayshellneovim/custom/config/init.lua",
+        table.concat(_la_args_neovim, " "),
 }
 
-for _li_key, _ls_val in ipairs(_la_exec_neovim) do
-        _ls_exec_neovim = _ls_exec_neovim.." ".._ls_val;
-end
-
-
--- argument
-for _li_key,_ls_val in ipairs({...}) do
-        _ls_exec_neovim = _ls_exec_neovim.." ".._ls_val
-end
+_ls_exec_neovim = table.concat(_la_exec_neovim, " ")
 
 
 -- execute

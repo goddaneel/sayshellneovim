@@ -93,4 +93,3 @@ vim.o.autochdir = true
 vim.o.autoread = false
 vim.o.backup = false
 vim.o.viminfo = ""
-

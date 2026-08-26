@@ -1,138 +1,137 @@
 --- vim.keymap
 -- mode
 vim.keymap.set(
-"n",
-",d",
-":digraphs<CR><ESC>"
+        "n",
+        ",d",
+        ":digraphs<CR><ESC>"
 )
 
 
 -- edit
 vim.keymap.set(
-"n",
-",gi",
-"gg=G<ESC>"
+        "n",
+        ",gi",
+        "gg=G<ESC>"
 )
 
 vim.keymap.set(
-"n",
-",gg",
-"gg=G<ESC>"
+        "n",
+        ",gg",
+        "gg=G<ESC>"
 )
 
 vim.keymap.set(
-"n",
-",ts",
-":retab<CR><ESC>"
+        "n",
+        ",ts",
+        ":retab<CR><ESC>"
 )
 
 vim.keymap.set(
-"n",
-",rt",
-":retab<CR><ESC>"
+        "n",
+        ",rt",
+        ":retab<CR><ESC>"
 )
 
 
 -- edit clipboard
 vim.keymap.set(
-{
-        "n",
-        "v",
-},
-",yy",
-"\"+yy<ESC>"
+        {
+                "n",
+                "v",
+        },
+        ",yy",
+        "\"+yy<ESC>"
 )
 
 vim.keymap.set(
-{
-        "n",
-        "v",
-},
-",p",
-"\"+p<ESC>"
+        {
+                "n",
+                "v",
+        },
+        ",p",
+        "\"+p<ESC>"
 )
 
 vim.keymap.set(
-{
-        "n",
-        "v",
-},
-",P",
-"\"+P<ESC>"
+        {
+                "n",
+                "v",
+        },
+        ",P",
+        "\"+P<ESC>"
 )
 
 
 -- search
 vim.keymap.set(
-"n",
-",nh",
-":nohlsearch<CR><ESC>"
+        "n",
+        ",nh",
+        ":nohlsearch<CR><ESC>"
 )
 
 
 -- format
 vim.keymap.set(
-"n",
-",j",
-"o<ESC>"
-)
-
-vim.keymap.set(
-"n",
-",k",
-"O<ESC>"
-)
-
-vim.keymap.set(
-{
         "n",
-        "v",
-},
-",h",
-":s/^/<SPACE>/g<CR><ESC>"
+        ",j",
+        "o<ESC>"
 )
 
 vim.keymap.set(
-{
         "n",
-        "v",
-},
-",l",
-":s/$/<SPACE>/g<CR><ESC>"
+        ",k",
+        "O<ESC>"
 )
 
 vim.keymap.set(
-"n",
-",sj",
-([[
-:s/\s\+$//ge<CR><ESC>
-j<ESC>
-:s/^\s\+//ge<CR><ESC>
-k<ESC>
-g<S-J><ESC>
-]]):gsub("[%c%s]", "")..""
+        {
+                "n",
+                "v",
+        },
+        ",h",
+        ":s/^/<SPACE>/g<CR><ESC>"
 )
 
 vim.keymap.set(
-"n",
-",sk",
-([[
-:s/^\s\+//ge<CR><ESC>
-k<ESC>
-:s/\s\+$//ge<CR><ESC>
-g<S-J><ESC>
-]]):gsub("[%c%s]", "")..""
+        {
+                "n",
+                "v",
+        },
+        ",l",
+        ":s/$/<SPACE>/g<CR><ESC>"
 )
 
 vim.keymap.set(
-"n",
-",sh",
-"i<CR><ESC>"
+        "n",
+        ",sj",
+        ([[
+        :s/\s\+$//ge<CR><ESC>
+        j<ESC>
+        :s/^\s\+//ge<CR><ESC>
+        k<ESC>
+        g<S-J><ESC>
+        ]]):gsub("[%c%s]", "") .. ""
 )
 
 vim.keymap.set(
-"n",
-",sl",
-"a<CR><ESC>"
+        "n",
+        ",sk",
+        ([[
+        :s/^\s\+//ge<CR><ESC>
+        k<ESC>
+        :s/\s\+$//ge<CR><ESC>
+        g<S-J><ESC>
+        ]]):gsub("[%c%s]", "") .. ""
 )
 
+vim.keymap.set(
+        "n",
+        ",sh",
+        "i<CR><ESC>"
+)
+
+vim.keymap.set(
+        "n",
+        ",sl",
+        "a<CR><ESC>"
+)
