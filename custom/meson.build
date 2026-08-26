@@ -14,6 +14,15 @@ install_data('execute/slnvim.lua',
 
 
 ## lib
+install_emptydir('/usr/lib',
+    install_mode : 'rwxr-xr-x')
+
+install_emptydir('/usr/lib/sayshellneovim',
+    install_mode : 'rwxr-xr-x')
+
+install_emptydir('/usr/lib/sayshellneovim/custom',
+    install_mode : 'rwxr-xr-x')
+
 install_subdir('config',
     install_dir : '/usr/lib/sayshellneovim/custom/config',
     strip_directory : true,
