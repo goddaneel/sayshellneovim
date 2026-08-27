@@ -1,6 +1,15 @@
 --- path
 -- and
-package.path = "/usr/lib/sayshellneovim/custom/config/?.lua;"..package.path
+local _la_package_path = {}
+
+_la_package_path = {
+        "/usr/lib/sayshellneovim/custom/config/?.lua",
+        "/usr/lib/sayshellneovim/custom/config/ftplugin/?.lua",
+        package.path
+}
+
+package.path = table.concat(_la_package_path, ";")
+
 
 
 --- require
