@@ -1,3 +1,3 @@
 --- require
 -- ftplugin
-require("ftplugin/c")
+require("c")

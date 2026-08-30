@@ -9,6 +9,7 @@ local _la_vim_runtimepath = {}
 -- package.path
 _la_package_path = {
         "/usr/lib/sayshellneovim/custom/config/global/?.lua",
+        "/usr/lib/sayshellneovim/custom/config/ftplugin/?.lua",
         package.path,
 }
 
