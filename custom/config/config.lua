@@ -15,7 +15,7 @@ _la_package_path = {
 package.path = table.concat(_la_package_path, ";")
 
 
--- vim.o.runtimepath
+-- vim.o.runtimepat
 _la_vim_runtimepath = {
         "/usr/lib/sayshellneovim/custom/config",
         vim.o.runtimepath,
