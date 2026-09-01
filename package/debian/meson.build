@@ -1,3 +1,4 @@
+#### install
 ### debian
 ## control
 _gs_config_debian = configuration_data()

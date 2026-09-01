@@ -1,3 +1,4 @@
+#### configure
 ### project
 project('sayshellneovim',
     license : 'Apache-2.0',
@@ -36,11 +37,12 @@ _gs_default_version = run_command('yq', '-r', '.version', 'Default.yml',
 
 
 
-### subproject
+#### subproject
 _gs_subproject_neovim = subproject('neovim-release')
 
 
 
+#### subdir
 ### custom
 subdir('custom')
 
