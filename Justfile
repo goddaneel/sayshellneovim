@@ -71,7 +71,6 @@ package-debian:
 
 meson-work arg1:
         just clean-all
-        just meson-subproject
         just meson-setup "{{arg1}}"
         just meson-install "{{arg1}}"
 

@@ -1,3 +1,14 @@
+#### compile
+configure_file(input : 'aria2c.input',
+    output: 'aria2c.input',
+    copy : true,
+    install_mode : 'rw-r--r--')
+
+run_command('aria2c', '-i', 'aria2c.input',
+    check : true)
+
+
+
 #### install
 ### debian
 ## control
@@ -38,11 +49,6 @@ install_emptydir('usr/lib/sayshellneovim',
     install_mode : 'rwxr-xr-x')
 
 install_emptydir('usr/lib/sayshellneovim/backend',
-    install_mode : 'rwxr-xr-x')
-
-install_subdir('../../subprojects/neovim-release/nvim-linux-x86_64',
-    install_dir : '/usr/lib/sayshellneovim/backend/neovim',
-    strip_directory : true,
     install_mode : 'rwxr-xr-x')
 
 meson.add_install_script('chmod',
