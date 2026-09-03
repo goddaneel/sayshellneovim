@@ -31,12 +31,11 @@ shasum-export arg1:
         shasum --algorithm 256 "{{file_name(arg1)}}" >> "{{file_name(arg1)}}.shasum" 
 
 
-meson-subproject:
-        cp -rv "wrap" "subprojects"
-
-
 meson-setup arg1:
         meson setup -Ddestdir="destdir" -Dpackage="{{arg1}}" "buildir/{{arg1}}"
+
+
+meson-compile arg1:
         meson compile -C "buildir/{{arg1}}"
 
 
@@ -72,6 +71,7 @@ package-debian:
 meson-work arg1:
         just clean-all
         just meson-setup "{{arg1}}"
+        just meson-compile "{{arg1}}"
         just meson-install "{{arg1}}"
 
 

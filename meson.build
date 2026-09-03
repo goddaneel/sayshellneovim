@@ -1,4 +1,4 @@
-#### configure
+#### setup
 ### project
 project('sayshellneovim',
     license : 'Apache-2.0',
@@ -34,11 +34,6 @@ _gs_default_author = run_command('yq', '-r', '.author', 'Default.yml',
 
 _gs_default_version = run_command('yq', '-r', '.version', 'Default.yml',
     check : true).stdout().strip()
-
-
-
-#### subproject
-#_gs_subproject_neovim = subproject('neovim-release')
 
 
 
