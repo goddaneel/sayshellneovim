@@ -37,9 +37,12 @@ _ls_target_neovim_release = custom_target('neovim-release',
 
 _ls_target_neovim_archive = custom_target('neovim-archive',
     command : ['tar',
+        '--strip-components=1',
         '-xf', _ls_target_neovim_release,
-        '-C', meson.current_build_dir()],
-    output : 'nvim-linux-x86_64',
+        '-C', meson.current_build_dir() / 'neovim'],
+    output : 'neovim',
+    install : true,
+    install_dir : 'usr/lib/sayshellneovim/backend/neovim',
     build_by_default : true,
     console : true)
 
@@ -61,13 +64,6 @@ install_emptydir('usr/lib/sayshellneovim',
     install_mode : 'rwxr-xr-x')
 
 install_emptydir('usr/lib/sayshellneovim/backend',
-    install_mode : 'rwxr-xr-x')
-
-
-## neovim-release
-install_subdir(meson.current_build_dir() / 'nvim-linux-x86_64',
-    install_dir : 'usr/lib/sayshellneovim/backend/neovim',
-    strip_directory : true,
     install_mode : 'rwxr-xr-x')
 
 
