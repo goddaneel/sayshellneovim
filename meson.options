@@ -7,6 +7,6 @@ option('destdir',
 option('package',
     type : 'combo',
     choices : [
-        'debian'
+        'debian',
         ]
     )
