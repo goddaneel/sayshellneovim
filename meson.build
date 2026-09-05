@@ -20,15 +20,6 @@ _gs_option_package = get_option('package')
 
 
 ### execute
-_gs_exec_sed = [
-    find_program('sed'),
-]
-
-_gs_exec_shasum = [
-    find_program('shasum'),
-    '--algorithm', '256',
-    ]
-
 _gs_exec_yq = [
     find_program('yq'),
     '-r'

@@ -118,12 +118,3 @@ meson.add_install_script(
     '--root-owner-group', '--build', 'destdir',
     _gs_export_debian / _gs_package_debian,
 )
-
-meson.add_install_script(
-    _gs_exec_shasum,
-    _gs_export_debian / _gs_package_debian,
-    '|',
-    _gs_exec_sed,
-    '"' + 's#' + _gs_export_debian / '##w ' +
-    _gs_export_debian / _gs_package_debian + '.sha256' + '"'
-)
