@@ -9,6 +9,8 @@ _gs_default_arch = run_command(
 
 _gs_package_debian = _gs_default_name + '-' + _gs_default_version + '-' + _gs_default_arch + '.deb'
 
+_gs_export_debian = meson.project_source_root() / 'export/debian'
+
 
 ## control
 _gs_config_debian = configuration_data()
@@ -114,5 +116,14 @@ meson.add_install_script(
 meson.add_install_script(
     find_program('dpkg-deb'),
     '--root-owner-group', '--build', 'destdir',
-    meson.project_source_root() / 'export/debian' / _gs_package_debian,
+    _gs_export_debian / _gs_package_debian,
+)
+
+meson.add_install_script(
+    _gs_exec_shasum,
+    _gs_export_debian / _gs_package_debian,
+    '|',
+    _gs_exec_sed,
+    '"' + 's#' + _gs_export_debian / '##w ' +
+    _gs_export_debian / _gs_package_debian + '.sha256' + '"'
 )

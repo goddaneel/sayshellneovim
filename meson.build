@@ -20,9 +20,8 @@ _gs_option_package = get_option('package')
 
 
 ### execute
-_gs_exec_cd = [
-    find_program('sh'),
-    '-c', 'cd',
+_gs_exec_sed = [
+    find_program('sed'),
 ]
 
 _gs_exec_shasum = [
