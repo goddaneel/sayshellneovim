@@ -54,7 +54,3 @@ meson-work arg1:
         just meson-setup "{{arg1}}"
         just meson-compile "{{arg1}}"
         just meson-install "{{arg1}}"
-
-
-work-debian:
-        just meson-work "debian"
