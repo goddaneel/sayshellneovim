@@ -22,6 +22,14 @@ shasum-export arg1:
         shasum --algorithm 256 "{{file_name(arg1)}}" >> "{{file_name(arg1)}}.shasum" 
 
 
+cmake-setup arg1:
+        cmake -S "." -B "build/{{arg1}}" -G "Ninja"
+
+
+cmake-build arg1:
+        cmake --build "build/{{arg1}}"
+
+
 meson-setup arg1:
         meson setup -Ddestdir="destdir" -Dpackage="{{arg1}}" "buildir/{{arg1}}"
 
