@@ -13,21 +13,28 @@ clean-all:
         git clean -fxd
 
 
-shasum-export arg1:
-        #!/usr/bin/bash
-        set -euxo pipefail
-        #       #
-        cd "{{parent_directory(arg1)}}"
-        #       #
-        shasum --algorithm 256 "{{file_name(arg1)}}" >> "{{file_name(arg1)}}.shasum" 
-
-
 cmake-setup arg1:
         cmake -S "." -B "build/{{arg1}}" -G "Ninja"
 
 
 cmake-build arg1:
         cmake --build "build/{{arg1}}"
+
+
+cmake-install arg1:
+        cmake --install "build/{{arg1}}" --prefix "build/{{arg1}}/install"
+
+
+cmake-work arg1:
+        just cmake-setup "{{arg1}}"
+        just cmake-build "{{arg1}}"
+        just cmake-install "{{arg1}}"
+
+
+work-debian:
+        just clean-all
+        just cmake-work "debian"
+
 
 
 meson-setup arg1:
